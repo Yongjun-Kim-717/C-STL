@@ -14,11 +14,11 @@ template <typename T>
 class CListIterator
 {
 public:
-	CListIterator() : m_current(), m_list(nullptr) {};
+	CListIterator<T>() : m_current(), m_list(nullptr) {};
 
 private:
-	TNode* m_current;
-	CList* m_list;
+	TNode<T>* m_current;
+	CList<T>* m_list;
 };
 
 // * STL List 구현
@@ -28,12 +28,29 @@ class CList
 public:
 	// 생성자
 	CList<T>() : m_headNode(nullptr), m_tailNode(nullptr), m_iterator(nullptr) {};
+	CList<T>(int count)
+	{
+		while (count--)
+		{
+
+		}
+	}
+	CList<T>(TNode<T> node, int count)
+	{
+		while (count--)
+		{
+
+		}
+	}
 
 	// 복사 생성자
-	CList<T>(const CList& list) : m_headNode(nullptr), m_tailNode(nullptr), m_iterator(nullptr)
+	CList<T>(const CList& list)
 	{
-		m_headNode = list.m_headNode;
+		m_headNode = new TNode<T>(list.m_headNode);
+		while (m_iterator->m_current)
+		{
 
+		}
 	};
 
 	// 이동 생성자
@@ -60,12 +77,16 @@ public:
 
 	};
 
+	void assign(int count, TNode<> node)
+	{
+
+	};
 
 private:
-	TNode* m_headNode;
-	TNode* m_tailNode;
+	TNode<T>* m_headNode;
+	TNode<T>* m_tailNode;
 
-	CListIterator* m_iterator;
+	CListIterator<T>* m_iterator;
 };
 
 #endif

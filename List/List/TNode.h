@@ -40,8 +40,8 @@ public:
 
 private:
 	T m_data;
-	TNode* m_prev;
-	TNode* m_next;
+	TNode<T>* m_prev;
+	TNode<T>* m_next;
 };
 
 #endif
